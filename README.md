@@ -27,10 +27,10 @@ The following instructions and examples use a *SFC6000*.
 
 ## Setup Guide
 
-### Connecting the Sensor
+### Connect the Sensor
 
-Your sensor has 5 different signals that need to be connected to your board: VDD, GND, SCL, ADDR, SDA.
-Use the following pins to connect your SFX6XXX:
+Your sensor has 5 pins that need to be connected to your board: VDD, GND, SCL, ADDR, SDA.
+Use the following description to connect your SFX6XXX:
 
 <img src="images/product-pinout-i2c-sfx6xxx.png" width="300px">
 
@@ -166,12 +166,6 @@ they are kept in their own file.
 ## Contributing
 
 **Contributions are welcome!**
-
-We develop and test this driver using our company internal tools (version
-control, continuous integration, code review etc.) and automatically
-synchronize the master branch with GitHub. But this doesn't mean that we don't
-respond to issues or don't accept pull requests on GitHub. In fact, you're very
-welcome to open issues or create pull requests :)
 
 This Sensirion library uses
 [`clang-format`](https://releases.llvm.org/download.html) to standardize the
