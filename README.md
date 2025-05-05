@@ -165,6 +165,17 @@ drivers. It mostly contains byte order conversions for different variable
 types. These functions are also used by the UART embedded drivers therefore
 they are kept in their own file.
 
+
+## Notes
+### Implications of 24V power requirement
+
+Since most development boards won't provide the required 24V, the power will be supplied by an external source, therefore **the sensor will be unnafected by an development board power cycle**.
+
+If a measurement is running at the time when a board reset is performed, the sensor will still be measuring when the board and its MCU starts back up.
+
+That is the reason why the provided example includes a `stopContinuousMeasurement()` before the call to `startO2ContinuousMeasurement()`. That will stop a potentially running measurement.
+
+
 ## Contributing
 
 **Contributions are welcome!**
