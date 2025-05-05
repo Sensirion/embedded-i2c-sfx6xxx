@@ -47,6 +47,8 @@ Use the following description to connect your SFX6XXX:
 
 The recommended voltage is 24V.
 
+> Make sure to use pull-up resistors if your setup requires it. Learn more about pull-up resistors [here](https://github.com/Sensirion/arduino-i2c-different-buses-example/blob/main/i2c-pull-up-resistors-intro.md).
+
 ### Configure the code
 
 In order to use the provided code we need to adjust two files according to your platform.
