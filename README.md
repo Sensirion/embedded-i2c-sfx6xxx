@@ -27,10 +27,10 @@ The following instructions and examples use a *SFC6000*.
 
 ## Setup Guide
 
-### Connecting the Sensor
+### Connect the Sensor
 
-Your sensor has 5 different signals that need to be connected to your board: VDD, GND, SCL, ADDR, SDA.
-Use the following pins to connect your SFX6XXX:
+Your sensor has 5 pins that need to be connected to your board: VDD, GND, SCL, ADDR, SDA.
+Use the following description to connect your SFX6XXX:
 
 <img src="images/product-pinout-i2c-sfx6xxx.png" width="300px">
 
@@ -46,6 +46,8 @@ Use the following pins to connect your SFX6XXX:
 
 
 The recommended voltage is 24V.
+
+> Make sure to use pull-up resistors if your setup requires it. Learn more about pull-up resistors [here](https://github.com/Sensirion/arduino-i2c-different-buses-example/blob/main/i2c-pull-up-resistors-intro.md).
 
 ### Configure the code
 
@@ -163,15 +165,20 @@ drivers. It mostly contains byte order conversions for different variable
 types. These functions are also used by the UART embedded drivers therefore
 they are kept in their own file.
 
+
+## Notes
+### Implications of 24V power requirement
+
+Since most development boards won't provide the required 24V, the power will be supplied by an external source, therefore **the sensor will be unnafected by an development board power cycle**.
+
+If a measurement is running at the time when a board reset is performed, the sensor will still be measuring when the board and its MCU starts back up.
+
+That is the reason why the provided example includes a `stopContinuousMeasurement()` before the call to `startO2ContinuousMeasurement()`. That will stop a potentially running measurement.
+
+
 ## Contributing
 
 **Contributions are welcome!**
-
-We develop and test this driver using our company internal tools (version
-control, continuous integration, code review etc.) and automatically
-synchronize the master branch with GitHub. But this doesn't mean that we don't
-respond to issues or don't accept pull requests on GitHub. In fact, you're very
-welcome to open issues or create pull requests :)
 
 This Sensirion library uses
 [`clang-format`](https://releases.llvm.org/download.html) to standardize the
